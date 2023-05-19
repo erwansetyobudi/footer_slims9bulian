@@ -18,8 +18,8 @@
     $visitday = $dbs->query('SELECT COUNT(visitor_id)FROM visitor_count WHERE DATE(checkin_date) = CURDATE()');
     $visitday = $visitday->fetch_row();
     // Visit All
-    $visitc = $dbs->query('SELECT COUNT(visitor_id)FROM visitor_count');
-    $visitorcount = $visitc->fetch_row();
+    $visittotal = $dbs->query('SELECT COUNT(visitor_id)FROM visitor_count');
+    $visitotal = $visittotal->fetch_row();
 ?>
 
 <footer class="py-4 bg-blue-dark text-grey-lighter">
@@ -63,8 +63,8 @@
                 </p>
                 <hr>
                 <p><h4>Visitor Stat</h4></p>
-                <p>Hari ini: ><?php echo $visitday['0'];?> | Bulan ini : ><?php echo $visitmonth['0'];?> | Tahun ><?php echo $visityear['0'];?> : 56181</p>
-                <p>Total kunjungan : ><?php echo $visitc['0'];?></p>
+                <p>Hari ini: <?php echo $visitday['0'];?> | Bulan ini : <?php echo $visitmonth['0'];?> | Tahun : <?php echo $visityear['0'];?></p>
+                <p>Total kunjungan : ><?php echo $visitotal['0'];?></p>
             </div>
             <div class="col-md-4 pt-8 md:pt-0">
                 <h4 class="mb-4"><?= __('Search'); ?></h4>
